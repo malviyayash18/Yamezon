@@ -9,9 +9,10 @@ export class AppComponent {
 
   title = 'Yamezon';
 
-  getValue(value:any) {
-
-    console.log(value);
+  post = {
+    
+    'title': "Title",
+    isFavourite: true
   }
 }
 

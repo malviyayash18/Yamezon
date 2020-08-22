@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/Yamezon",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
