@@ -7,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  isOpen: boolean;
+  public isOpen: boolean;
+  public innerWidth: any;
 
   constructor() {
     this.isOpen = false;
   }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+    console.log(this.innerWidth);
   }
 
   transition() {
