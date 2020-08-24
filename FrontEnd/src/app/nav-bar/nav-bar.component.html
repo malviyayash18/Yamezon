@@ -1,78 +1,47 @@
-<nav class="navbar">
+<div class="container navbar-one">
 
-  <div class="row" style="width: 100%;">
+  <div id="navbar-one-left" class="container navbar-one-div">
 
-    <div class="col-sm- navbar-brand">
-
-
-      <div class="row row-full">
-
-        <div class="col- navbar-col" id="nav-button" [class.open]="isOpen" (click)="transition()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <div id="app-name" class="col no-padding-col">
-          <div> Yamezon </div>
-        </div>
-
-        <div class="col- mobile-cart-col no-padding-col">
-          <div class="row">
-            <div class="col- no-padding-col user-greeting">
-              Hello, YASH
-            </div>
-            <div class="col- no-padding-col">
-              <sup> <span id="cart-badge-mobile" class="badge badge-warning">10</span> </sup>
-              <img id="cart-mobile" src="../../assets/Icons/Cart.png">
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <div class="container menu">
+      Menu
     </div>
-
-    <div class="col-md- navbar-col">
-      <form class="">
-        <div class="row">
-          <div class="col- navbar-col-inner">
-            <button class="stick-button" id="left-stick" type="submit">Categories</button>
-            <input class="stick-input" id="" type="text" placeholder="Search">
-            <button class="stick-button" id="right-stick" type=""> <img class="button-icon"
-                src="../../assets/Icons/Search.png">
-            </button>
-          </div>
-        </div>
-      </form>
+    <div class="container logo">
+      Logo
     </div>
-
-    <div class="col- navbar-col user-greeting-desktop">
-      <div class="row row-cols-1">
-        <div class="col-">
-          Hello, Yash Malviya
-        </div>
-        <div class="col-">
-          Manage Account
-        </div>
-      </div>
-    </div>
-
-    <div class=" navbar-col cart-col">
-      <img id="cart" src="../../assets/Icons/Cart.png">
-      <sup> <span id="cart-badge" class="badge badge-warning">10</span> </sup>
-    </div>
-
-
-  </div>
-</nav>
-
-<nav class="navbar navbar-second">
-  <div class="col- navbar-col">
-    <div class="row">
-      <div class="col- div-center">
-        <img id="location-pin" src="../../assets/Icons/Location.png">
-        Deliver to Yash - Bangalore 560102
-      </div>
+    <div class="container search-bar">
+      Search
     </div>
   </div>
-</nav>
+
+  <div id="navbar-one-right" class="container navbar-one-div">
+
+    <div class="container greeting navbar-one-div">
+      <div class="container">
+        Hello, Yash
+      </div>
+      <div class="container">
+        Manage Account
+      </div>
+    </div>
+    <div class="container cart">
+      Cart
+    </div>
+  </div>
+
+  <!-- <div class="container greeting">
+    <div>
+      Hello, Yash
+    </div>
+    <div>
+      Manage Account
+    </div>
+  </div>
+  <div class="container cart">
+    Cart
+  </div> -->
+
+</div>
+
+<div class="container navbar one">
+  This is NAVBAR Two
+</div>
