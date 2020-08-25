@@ -1,47 +1,63 @@
 <div class="container navbar-one">
-
-  <div id="navbar-one-left" class="container navbar-one-div">
-
-    <div class="container menu">
-      Menu
+  <div class="container menu">
+    <div class="" id="menu-icon" [class.open]="isOpen" (click)="transition()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-    <div class="container logo">
-      Logo
-    </div>
-    <div class="container search-bar">
-      Search
+    <div class="container logo get-away">
+      Yamezon
     </div>
   </div>
 
-  <div id="navbar-one-right" class="container navbar-one-div">
-
-    <div class="container greeting greeting-bar">
-      <div class="container">
-        Hello, Yash
-      </div>
-      <div class="container">
-        Manage Account
-      </div>
+  <div class="container search-bar">
+    <div class="container category-container">
+      <button id="category-button" class="btn" type="button">
+        All &#9662;
+      </button>
     </div>
-    <div class="container cart">
-      Cart
+
+    <div class="container search-input-container">
+      <input
+        id="search-input"
+        class="form-input"
+        type="text"
+        placeholder="Search Here"
+      />
+    </div>
+
+    <div class="container search-container">
+      <button id="search-button" class="btn" type="button">
+        <img src="../../assets/Icons/Search.png" class="search-icon" />
+      </button>
     </div>
   </div>
 
-  <!-- <div class="container greeting">
-    <div>
-      Hello, Yash
-    </div>
-    <div>
-      Manage Account
-    </div>
-  </div>
   <div class="container cart">
-    Cart
-  </div> -->
+    <div id="return-and-orders" class="container get-away-extra">
+      <div id="" class="container upper">
+        Returns
+      </div>
+      <div id="" class="container lower">
+        & Orders
+      </div>
+    </div>
 
+    <div class="container get-away-extra">
+      <div id="" class="container upper">
+        Hello, YASH
+      </div>
+      <div id="manage-account" class="container lower">
+        Manage Account &#9662;
+      </div>
+    </div>
+    <img src="../../assets/Icons/Cart.png" id="cart-icon" />
+  </div>
 </div>
 
-<div class="container navbar one">
-  This is NAVBAR Two
+<div class="container navbar-two">
+  <div class="container location">
+    <img id="location-pin" src="../../assets/Icons/Location.png" />
+    <span class="location-text"> Deliver to YASH - Bangalore 560102</span>
+  </div>
 </div>
