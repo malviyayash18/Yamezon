@@ -5,7 +5,7 @@
       <span></span>
       <span></span>
     </div>
-    <div class="container logo get-away">
+    <div routerLink="/" class="container logo get-away">
       Yamezon
     </div>
   </div>
@@ -28,8 +28,8 @@
     </div>
   </div>
 
-  <div class="container cart">
-    <div id="return-and-orders" class="container get-away-extra">
+  <div type="button" id="" class="container cart">
+    <div routerLink="/orders" id="return-and-orders" class="container get-away-extra">
       <div id="" class="container upper">
         Returns
       </div>
@@ -38,15 +38,24 @@
       </div>
     </div>
 
-    <div class="container get-away-extra">
+    <div id="sign-in" class="container get-away-extra" routerLink="/login">
+      <div id="" class="container upper">
+        Hello, Sign In
+      </div>
+      <div id="manage-account" class="container lower">
+        Manage Account
+      </div>
+    </div>
+
+    <div id="account" class="container get-away-extra" routerLink="/account">
       <div id="" class="container upper">
         Hello, YASH
       </div>
       <div id="manage-account" class="container lower">
-        Manage Account &#9662;
+        Manage Account
       </div>
     </div>
-    <img src="../../assets/Icons/Cart.png" id="cart-icon" />
+    <img routerLink="/cart" src="../../assets/Icons/Cart.png" id="cart-icon" />
   </div>
 </div>
 

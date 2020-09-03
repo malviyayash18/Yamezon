@@ -1,5 +1,10 @@
-button:focus {
-  outline: 0;
+*:focus {
+  outline: none;
+  border: none;
+}
+
+*:active {
+  outline: none;
   border: none;
 }
 
@@ -39,6 +44,7 @@ input:focus {
 //   flex-direction: column;
 // }
 
+
 .cart {
   display: flex;
   justify-content: space-between;
@@ -68,6 +74,7 @@ input:focus {
 }
 
 .logo {
+  cursor: pointer;
   order: 2;
   // flex-basis: 40%;
   padding: 5px;
@@ -139,9 +146,9 @@ input:focus {
 }
 
 #cart-icon {
-  width: 40px;
+  width: 37px;
+  cursor: pointer;
 }
-
 
 #menu-icon {
   width: 25px;
@@ -209,10 +216,15 @@ input:focus {
   transform: rotate(-135deg);
 }
 
-@media (max-width: 576px) {
-  .location {
-    margin: auto;
-  }
+#return-and-orders {
+  cursor: pointer;
+}
+
+#account {
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
 
   .greeting {
     order: 3;
@@ -235,23 +247,20 @@ input:focus {
   }
 
   #return-and-orders {
-    display: none;
+    display: block;
   }
 
   #manage-account {
-    display: none;
+    display: block;
   }
 
   .search-bar {
-    flex-basis: 100%;
     max-width: 100%;
+    flex-basis: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .location {
-    margin: auto;
-  }
 
   .greeting {
     order: 3;
@@ -284,5 +293,41 @@ input:focus {
   .search-bar {
     max-width: 100%;
     flex-basis: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .greeting {
+    order: 3;
+  }
+
+  .cart {
+    order: 4;
+  }
+
+  .menu {
+    order: 1;
+  }
+
+  .logo {
+    order: 2;
+  }
+
+  .search-bar {
+    order: 5;
+  }
+
+  #return-and-orders {
+    display: none;
+  }
+
+  #manage-account {
+    display: none;
+  }
+
+  .search-bar {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
