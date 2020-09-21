@@ -1,3 +1,5 @@
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
 import { environment } from './../environments/environment';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -54,7 +56,10 @@ import { LogInComponent } from './log-in/log-in.component';
       { path: 'admin/order', component: AdminOrdersComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 

@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +11,9 @@ export class NavBarComponent implements OnInit {
   public isOpen: boolean;
   public innerWidth: any;
 
-  constructor() {
+
+
+  constructor(public auth: AuthService) {
     this.isOpen = false;
   }
 
