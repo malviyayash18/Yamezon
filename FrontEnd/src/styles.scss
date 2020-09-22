@@ -6,8 +6,9 @@
 
 html,
 body {
+  height: 100%;
   width: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   margin: 0;
   font-family: 'Sanchez', serif;
   // -webkit-box-sizing: border-box;
@@ -16,5 +17,7 @@ body {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
-  user-select: none
+  user-select: none;
+  scrollbar-width: thin;          /* "auto" or "thin"  */
+  scrollbar-color: white black;
 }

@@ -1,3 +1,56 @@
-<button class="btn" (click)="authService.logInWithGoogleService()"> Login with Google </button>
+<app-nav-bar-simple></app-nav-bar-simple>
 
-<button (click)="logout()"> Sign Out </button>
+<div class="container container-center">
+
+    <div class="center-header"> Sign In </div>
+
+    <div id="second-heading" class="center-header"> With social account </div>
+
+    <div id="social-buttons" class="container">
+
+        <div id="social-button-holder" class="container">
+            <div id="google-button" class="container social-item">
+                <button (click)="signInWithGoogle()" class="btn loginBtn loginBtn--google">Google </button>   
+            </div>
+            <div id="facebook-button" class="container social-item">
+                <button (click)="signInWithFacebook()" class="btn loginBtn loginBtn--facebook">Facebook </button>  
+            </div>
+            <div id="microsoft-button" (click)="signInWithMicrosoft()" class="container social-item">
+                <button class="btn loginBtn loginBtn--microsoft">Microsoft </button>
+            </div>
+        </div>
+
+             
+               
+        
+    </div>
+
+    <div class="container center" id="or-text">
+        or with Yamezon account
+   </div>
+
+    <div class="container">
+        <input #email class="" type="email" placeholder="Johndoe@doe.com"> 
+        <input #password class="" type="password" placeholder="Password">
+        <div class="center">
+            <button id="login-button" class="btn" (click)="signInWithEmail(email.value, password.value)"> Login </button>
+        </div>
+    </div>
+
+    <div id="forgot-register" class="container">
+        <div class="conatiner">
+            <a routerLink="/register"> Register Now. </a>
+        </div>
+        <div class="container">
+            <a routerLink="/reset"> Forgot Password ? </a>
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+<!-- <button class="btn" (click)="signOut()"> Sign Out </button> -->
+
+<app-footer></app-footer>

@@ -13,7 +13,7 @@ export class NavBarComponent implements OnInit {
 
 
 
-  constructor(public auth: AuthService) {
+  constructor(public authService: AuthService) {
     this.isOpen = false;
   }
 

@@ -1,0 +1,36 @@
+  
+  .navbar-one,
+  .navbar-two {
+    flex-direction: row;
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .menu {
+      margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 1;
+    // flex-basis: 15%;
+    padding: 5px;
+  }
+  
+  .get-away {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  
+  
+  .logo {
+    cursor: pointer;
+    order: 2;
+    // flex-basis: 40%;
+    padding: 5px;
+    font-size: 23px;
+  }

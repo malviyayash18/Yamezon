@@ -13,6 +13,10 @@ input:focus {
   border: none;
 }
 
+input {
+  font-family: inherit;
+}
+
 .navbar-one,
 .navbar-two {
   flex-direction: row;
@@ -23,6 +27,17 @@ input:focus {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.navbar-one {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.navbar-two {
+  margin-top: 65px;
 }
 
 .location-text {

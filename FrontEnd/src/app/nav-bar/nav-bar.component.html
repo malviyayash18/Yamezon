@@ -38,23 +38,25 @@
       </div>
     </div>
 
-    <div id="account" class="container get-away-extra" routerLink="/account">
+    <!-- If the user is logged in -->
+    <div id="account" *ngIf="authService.user as user else signin" class="container get-away-extra" routerLink="/account">
       <div id="" class="container upper">
-        Hello, YASH
+        Hello, {{ user.displayName }}
       </div>
       <div id="manage-account" class="container lower">
         Manage Account
       </div>
     </div>
 
-    <div id="sign-in" class="container get-away-extra" routerLink="/login">
+    <!-- If the user is not logged in -->
+    <ng-template #signin> <div id="sign-in" class="container get-away-extra" routerLink="/login">
       <div id="" class="container upper">
         Hello, Sign In
       </div>
       <div id="manage-account" class="container lower">
         Manage Account
       </div>
-    </div>
+    </div> </ng-template>
 
 
     <img routerLink="/cart" src="../../assets/Icons/Cart.png" id="cart-icon" />

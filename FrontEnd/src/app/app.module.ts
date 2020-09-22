@@ -22,6 +22,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './Admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { NavBarSimpleComponent } from './nav-bar-simple/nav-bar-simple.component';
+import { FooterLargeComponent } from './footer-large/footer-large.component';
 
 @NgModule({
   declarations: [
@@ -36,25 +38,16 @@ import { LogInComponent } from './log-in/log-in.component';
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LogInComponent
+    LogInComponent,
+    NavBarSimpleComponent,
+    FooterLargeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'orders', component: MyOrdersComponent },
-      { path: 'product', component: ProductsComponent },
-      { path: 'cart', component: ShoppingCartComponent },
-      { path: 'checkout', component: CheckoutComponent },
-      { path: 'success', component: OrderSuccessComponent },
-      { path: 'login', component: LogInComponent },
-      { path: 'admin/product', component: AdminProductsComponent },
-      { path: 'admin/order', component: AdminOrdersComponent }
-    ])
+    AngularFireAuthModule
   ],
   providers: [
     AuthService,

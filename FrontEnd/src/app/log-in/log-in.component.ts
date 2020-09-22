@@ -13,11 +13,23 @@ export class LogInComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logInWithGoogle() {
-    this.authService.logInWithGoogleService();
+  signOut() {
+    this.authService.signOut();
   }
 
-  logout() {
-    this.authService.logoutService();
+  signInWithGoogle() {
+    this.authService.signInWithGoogle();
+  }
+
+  signInWithFacebook() {
+    this.authService.signInWithFacebook();
+  }
+
+  signInWithMicrosoft() {
+    this.authService.signInWithMicrosoft();
+  }
+
+  signInWithEmail(email, password) {
+    this.authService.SignInWithEmail(email, password)
   }
 }
