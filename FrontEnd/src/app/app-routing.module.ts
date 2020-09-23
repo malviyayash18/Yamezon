@@ -14,10 +14,10 @@ import { LogInComponent } from './log-in/log-in.component';
 import { AuthGuardService } from './auth-guard.service'
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'orders', component: MyOrdersComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService]},
+  { path: 'orders', component: MyOrdersComponent},
   { path: 'product', component: ProductsComponent },
-  { path: 'cart', component: ShoppingCartComponent },
+  { path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuardService] },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'success', component: OrderSuccessComponent },
   { path: 'login', component: LogInComponent },
