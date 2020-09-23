@@ -37,7 +37,12 @@ input {
 }
 
 .navbar-two {
-  margin-top: 65px;
+  margin-top: 70px;
+}
+
+#image-container {
+  padding-right: 5px;
+  height: auto;
 }
 
 .location-text {
@@ -49,7 +54,13 @@ input {
 }
 
 #location-pin {
+  margin-top: 3px;
+  width: 32px;
   vertical-align: middle;
+}
+
+#location-main {
+  display: flex;
 }
 
 // .greeting {
@@ -161,6 +172,7 @@ input {
 }
 
 #cart-icon {
+  margin-right: 20px;
   width: 37px;
   cursor: pointer;
 }
