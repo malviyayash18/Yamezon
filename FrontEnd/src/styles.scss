@@ -6,18 +6,22 @@
 
 html,
 body {
-  // height: 100%;
+  height: 100vh;
   width: 100%;
   // overflow-x: hidden;
   margin: 0;
   font-family: 'Sanchez', serif;
-  // -webkit-box-sizing: border-box;
-  // -moz-box-sizing: border-box;
-  // box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   user-select: none;
   scrollbar-width: thin;          /* "auto" or "thin"  */
   scrollbar-color: white black;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
