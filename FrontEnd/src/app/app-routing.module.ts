@@ -13,11 +13,14 @@ import { LogInComponent } from './log-in/log-in.component';
 
 import { AuthGuardService } from './auth-guard.service'
 
+// , canActivate: [AuthGuardService]
+
+
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuardService]},
+  { path: '', component: HomeComponent},
   { path: 'orders', component: MyOrdersComponent},
   { path: 'product', component: ProductsComponent },
-  { path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuardService] },
+  { path: 'cart', component: ShoppingCartComponent},
   { path: 'checkout', component: CheckoutComponent },
   { path: 'success', component: OrderSuccessComponent },
   { path: 'login', component: LogInComponent },

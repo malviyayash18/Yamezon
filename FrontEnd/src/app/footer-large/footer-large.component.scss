@@ -28,8 +28,9 @@ option {
 
 #main-splitter {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 10px;
+  flex-wrap: wrap;
 }
 
 li {
@@ -37,6 +38,7 @@ li {
   margin: 10px 0px;
   font-size: 15px;
   cursor: pointer;
+  width: 100%;
 }
 
 .list-header {
@@ -49,4 +51,27 @@ hr {
   width: 95%;
   color: white;
   margin-top: 20px;
+}
+
+// Media CSS comes here ....
+
+@media (max-width: 992px) {
+    
+}
+
+@media (max-width: 768px) {
+  #container-splitter {
+    justify-content: space-around;    
+  }
+  
+  #container-item {
+      width: 50%;
+    };
+
+}
+
+@media (max-width: 576px) {
+  #container-item {
+    width: 400px;
+  }
 }

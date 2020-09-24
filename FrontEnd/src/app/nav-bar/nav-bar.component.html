@@ -31,7 +31,7 @@
   <div type="button" id="" class="container cart">
 
     
-    <div routerLink="/orders" id="return-and-orders" class="container get-away-extra">
+    <div routerLink="" id="return-and-orders" class="container get-away-extra">
 
       <div *ngIf="authService.user | async as user_data" id="location-main" class="container">
         <div id="image-container" class="container">
@@ -39,7 +39,8 @@
         </div>
         <div class="container">
           <div id="" class="container upper">
-            Deliver to {{ user_data.displayName }}
+            <!-- Deliver to {{ user_data.displayName }} -->
+            Deliver to SomeName
           </div>
           <div id="" class="container lower">
             Bangalore - 560102
@@ -61,7 +62,8 @@
     <!-- If the user is logged in -->
     <div id="account" *ngIf="authService.user | async as user_data else signin" class="container get-away-extra" routerLink="/account">
       <div id="" class="container upper">
-        Hello, {{ user_data.displayName }}
+        <!-- Hello, {{ user_data.displayName }} -->
+        Hello, User
       </div>
       <div id="manage-account" class="container lower">
         Manage Account
@@ -103,9 +105,9 @@
   </div>
 </div>
 
-<!-- <div class="container navbar-two">
+<div  class="container navbar-two">
   <div class="container location">
     <img id="location-pin" src="../../assets/Icons/Location.png" />
-    <span class="location-text"> Deliver to YASH - Bangalore 560102</span>
+    <span lass="location-text"> Deliver to Yash - Bangalore 560102</span>
   </div>
-</div> -->
+</div>

@@ -7,29 +7,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-// export class AuthGuardService implements CanActivate {
-
-//   constructor(
-//     private authService: AuthService, 
-//     public router: Router
-//     ) { } 
-
-//     CanActivate(
-//       next: ActivatedRouteSnapshot,
-//       state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-//         // if(this.authService.isLoggedIn() !== true) {
-//         //   this.router.navigate(['/orders'])
-//         // }
-//         // return true;        
-//         // }
-
-//         return true;        
-
-//         // return this.authService.isLoggedIn() ? true : this.router.navigate(["login"]);
-//     }
-// }
-
 export class AuthGuardService implements CanActivate {
+
+  public temp: any;
+
   constructor(private authService: AuthService,
   private router: Router){
   }
@@ -40,6 +21,15 @@ export class AuthGuardService implements CanActivate {
       if (!this.authService.isLoggedIn()) {
         this.router.navigate(['login']);
       }
+      if (this.authService.user) {
+        console.log('well the user is there !!')
+        console.log(this.authService.user)
+        // this.temp = JSON.stringify(this.authService.user);
+        // console.log(this.temp);
+        // console.log(JSON.parse(this.temp));
+        // this.authService.user['displayName'] = this.authService.user['displayName'].split(' ')[0]
+      }
+      
       return true;
            
       }

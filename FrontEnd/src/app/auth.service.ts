@@ -40,25 +40,25 @@ export class AuthService {
       this.ngZone.run(() => {
         this,this.router.navigate(['/']);
       })    
-      this.setUserData(result.user)
+      // this.setUserData(result.user)
     }).catch((error) => {
       window.alert(error);
     })
   }
 
-  setUserData(userTemp) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${userTemp.uid}`);
-    const userData: User = {
-      uid: userTemp.uid,
-      email: userTemp.email,
-      displayName: userTemp.displayName,
-      photoURL: userTemp.photoURL,
-      emailVerified: userTemp.emailVerified
-    }
-    return userRef.set(userData, {
-      merge: true
-    })
-  }
+  // setUserData(userTemp) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${userTemp.uid}`);
+  //   const userData: User = {
+  //     uid: userTemp.uid,
+  //     email: userTemp.email,
+  //     displayName: userTemp.displayName,
+  //     photoURL: userTemp.photoURL,
+  //     emailVerified: userTemp.emailVerified
+  //   }
+  //   return userRef.set(userData, {
+  //     merge: true
+  //   })
+  // }
 
   isLoggedIn():boolean {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -93,7 +93,7 @@ export class AuthService {
         this.ngZone.run(() => {
           this.router.navigate(['/']);
         });
-        this.setUserData(result.user);
+        // this.setUserData(result.user);
     }).catch((error) => {
       window.alert(error);  
     })

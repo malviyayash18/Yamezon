@@ -7,5 +7,23 @@
     padding: 20px;
 }
 
+// Media CSS comes here ....
+
+@media (max-width: 992px) {
+    
+  }
+  
+  @media (max-width: 768px) {
+    #main-body-container {
+        margin-top: 110px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+      #main-body-container {
+          margin-top: 0px;
+      }
+  }
+
 
   
