@@ -18,7 +18,7 @@
     </div>
 
     <div class="container search-input-container">
-      <input id="search-input" class="form-input" type="text" placeholder="Search Here" />
+      <input id="search-input" class="form-input" type="text" placeholder="Search products here" />
     </div>
 
     <div class="container search-container">
@@ -43,7 +43,7 @@
             Deliver to SomeName
           </div>
           <div id="" class="container lower">
-            Bangalore - 560102
+            Bangalore - 560102 &#9660;
           </div>
         </div>
       </div>
@@ -60,13 +60,21 @@
     </div> -->
 
     <!-- If the user is logged in -->
-    <div id="account" *ngIf="authService.user | async as user_data else signin" class="container get-away-extra" routerLink="/account">
+    <div id="account" *ngIf="authService.user | async as user_data; else signin" class="container get-away-extra" >
       <div id="" class="container upper">
-        <!-- Hello, {{ user_data.displayName }} -->
-        Hello, User
+        Hello, {{ user_data.displayName }}
+        <!-- Hello, User -->
       </div>
       <div id="manage-account" class="container lower">
-        Manage Account
+        <div class="dropdown">
+          <button class="dropdown-button">Manage Account &#9660;</button>
+          <div class="dropdown-content">
+            <a>Manage Account</a>
+          <a>My Orders</a>
+          <a>My Wishlist</a>
+          <a (click)="Logout()" >Logout</a>
+          </div>
+        </div>
       </div>
     </div>
 

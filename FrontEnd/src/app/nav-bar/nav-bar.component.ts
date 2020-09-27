@@ -30,4 +30,8 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  Logout() {
+    this.authService.Logout()
+  }
+
 }

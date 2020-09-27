@@ -1,0 +1,30 @@
+<app-nav-bar-simple></app-nav-bar-simple>
+
+<div class="container" id="main-container">
+    
+    <div class="container container-center">
+
+        <div class="center-header"> Create an Account </div>
+        
+        <div class="container">
+            <input #email class="" type="email" placeholder="Johndoe@doe.com"> 
+            <input #password class="" type="password" placeholder="Password">
+            <!-- <p id="password-message"> Your password must atleast be 6 characters long. </p> -->
+            <input class="" type="password" placeholder="Re-type password">
+            <div class="center">
+                <button (click)="CreateUserWithEmailAndPassword(email.value, password.value)" id="login-button" class="btn"> Register </button>
+            </div>
+        </div>
+    
+        <div id="forgot-register" class="container">
+            <div class="conatiner">
+                <a routerLink="register"> Have an Account ? Sign In. </a>
+            </div>
+        </div>
+    
+        
+    </div>
+
+</div>
+
+<app-footer></app-footer>

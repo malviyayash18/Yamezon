@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -13,17 +14,18 @@ import { LogInComponent } from './log-in/log-in.component';
 
 import { AuthGuardService } from './auth-guard.service'
 
-// , canActivate: [AuthGuardService]
+// Use this to protect a route --> , canActivate: [AuthGuardService]
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'orders', component: MyOrdersComponent},
   { path: 'product', component: ProductsComponent },
-  { path: 'cart', component: ShoppingCartComponent},
-  { path: 'checkout', component: CheckoutComponent },
+  { path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuardService]},
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
   { path: 'success', component: OrderSuccessComponent },
   { path: 'login', component: LogInComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'admin/product', component: AdminProductsComponent },
   { path: 'admin/order', component: AdminOrdersComponent }
 ];

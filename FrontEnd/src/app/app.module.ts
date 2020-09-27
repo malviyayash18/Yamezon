@@ -24,6 +24,7 @@ import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.componen
 import { LogInComponent } from './log-in/log-in.component';
 import { NavBarSimpleComponent } from './nav-bar-simple/nav-bar-simple.component';
 import { FooterLargeComponent } from './footer-large/footer-large.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterLargeComponent } from './footer-large/footer-large.component';
     AdminOrdersComponent,
     LogInComponent,
     NavBarSimpleComponent,
-    FooterLargeComponent
+    FooterLargeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

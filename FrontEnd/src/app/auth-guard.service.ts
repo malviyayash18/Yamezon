@@ -18,19 +18,7 @@ export class AuthGuardService implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<boolean> | boolean {
-      if (!this.authService.isLoggedIn()) {
-        this.router.navigate(['login']);
-      }
-      if (this.authService.user) {
-        console.log('well the user is there !!')
-        console.log(this.authService.user)
-        // this.temp = JSON.stringify(this.authService.user);
-        // console.log(this.temp);
-        // console.log(JSON.parse(this.temp));
-        // this.authService.user['displayName'] = this.authService.user['displayName'].split(' ')[0]
-      }
       
       return true;
-           
       }
     }

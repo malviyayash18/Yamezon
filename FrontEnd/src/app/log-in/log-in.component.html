@@ -12,12 +12,12 @@
     
             <div id="social-button-holder" class="container">
                 <div id="google-button" class="container social-item">
-                    <button (click)="signInWithGoogle()" class="btn loginBtn loginBtn--google">Google </button>   
+                    <button (click)="SignInWithGoogle()" class="btn loginBtn loginBtn--google">Google </button>   
                 </div>
                 <div id="facebook-button" class="container social-item">
-                    <button (click)="signInWithFacebook()" class="btn loginBtn loginBtn--facebook">Facebook </button>  
+                    <button (click)="SignInWithFacebook()" class="btn loginBtn loginBtn--facebook">Facebook </button>  
                 </div>
-                <div id="microsoft-button" (click)="signInWithMicrosoft()" class="container social-item">
+                <div id="microsoft-button" (click)="SignInWithMicrosoft()" class="container social-item">
                     <button class="btn loginBtn loginBtn--microsoft">Microsoft </button>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <input #email class="" type="email" placeholder="Johndoe@doe.com"> 
             <input #password class="" type="password" placeholder="Password">
             <div class="center">
-                <button id="login-button" class="btn" (click)="signInWithEmail(email.value, password.value)"> Login </button>
+                <button id="login-button" class="btn" (click)="SignInWithEmailAndPassword(email.value, password.value)"> Login </button>
             </div>
         </div>
     

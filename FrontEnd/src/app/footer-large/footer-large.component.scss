@@ -66,12 +66,21 @@ hr {
   
   #container-item {
       width: 50%;
-    };
+    }
+
+  .first-container {
+    display: none;
+  }
 
 }
 
 @media (max-width: 576px) {
   #container-item {
-    width: 400px;
+    width: 100%;
+    flex-grow: 300px;
+  }
+
+  .first-container {
+    display: none;
   }
 }

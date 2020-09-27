@@ -8,28 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+   }
 
   ngOnInit(): void {
   }
 
-  signOut() {
-    this.authService.signOut();
+  SignInWithEmailAndPassword(email, password) {
+    this.authService.SignInWithEmailAndPassword(email, password)
   }
 
-  signInWithGoogle() {
-    this.authService.signInWithGoogle();
+  SignInWithGoogle() {
+    this.authService.SignInWithGoogle();
   }
 
-  signInWithFacebook() {
-    this.authService.signInWithFacebook();
+  SignInWithFacebook() {
+    this.authService.SignInWithFacebook();
   }
 
-  signInWithMicrosoft() {
-    this.authService.signInWithMicrosoft();
-  }
-
-  signInWithEmail(email, password) {
-    this.authService.SignInWithEmail(email, password)
+  SignInWithMicrosoft() {
+    this.authService.SignInWithMicrosoft();
   }
 }

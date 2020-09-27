@@ -1,11 +1,11 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
-// import { User } from 'firebase';
+import { User } from 'firebase';
+// import { User } from './user';
 import { Observable } from 'rxjs';
 import { NgZone } from '@angular/core';
-import { User } from "./user";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
@@ -13,91 +13,68 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 })
 export class AuthService {
 
-  user: Observable<User>;
+  public user: Observable<User>;
+  public isLoggedIn : Observable<string>;
 
-  constructor(public afAuth: AngularFireAuth, 
-    public router: Router,
-    public afs: AngularFirestore,
-    public ngZone: NgZone) {
 
-      this.user = afAuth.authState;
+   constructor(public afAuth: AngularFireAuth, private router: Router, private route: ActivatedRoute) {
+    this.user = afAuth.authState; 
+    }
 
-    // this.afAuth.authState.subscribe(user => {
-    //   if (user) {
-    //     this.user = user;
-    //     localStorage.setItem('user', JSON.stringify(this.user));
-    //     JSON.parse(localStorage.getItem('user'));
-    //   } else {
-    //     localStorage.setItem('user', null);
-    //     JSON.parse(localStorage.getItem('user'));
-    //   }
-    // })
-  }
+   // Create new user with Email and Password
+   CreateUserWithEmailAndPassword(email, password) {
+     this.afAuth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+       var errorCode = error.code;
+       var errorMessage = error.message;
+       console.log(errorMessage)
+     })
+   }
 
-  AuthLogin(provider) {
-    return this.afAuth.signInWithPopup(provider)
-    .then((result) => {
-      this.ngZone.run(() => {
-        this,this.router.navigate(['/']);
-      })    
-      // this.setUserData(result.user)
-    }).catch((error) => {
-      window.alert(error);
+  // SignIn with Email and Password
+  SignInWithEmailAndPassword(email, password) {
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl);
+
+    this.afAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      window.alert(error.message);      
+    }).then((result) => {
+      
     })
   }
 
-  // setUserData(userTemp) {
-  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${userTemp.uid}`);
-  //   const userData: User = {
-  //     uid: userTemp.uid,
-  //     email: userTemp.email,
-  //     displayName: userTemp.displayName,
-  //     photoURL: userTemp.photoURL,
-  //     emailVerified: userTemp.emailVerified
-  //   }
-  //   return userRef.set(userData, {
-  //     merge: true
-  //   })
-  // }
-
-  isLoggedIn():boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
-  }
-
-  signOut() {
-    return this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.router.navigate(['/login']);
-    })
-  }
   // SignIn with Google
-  signInWithGoogle() {
-    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
+  SignInWithGoogle() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    this.afAuth.signInWithPopup(provider).then((result) => {
+      this.router.navigate(['/']);
+    }).catch((error) => {
+      window.alert(error.message);
+    })
   }
 
   // SignIn with Facebook
-  signInWithFacebook() {
-    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
-  }
-
-  // SignIn with Microsoft
-  signInWithMicrosoft() {
-    return this.AuthLogin(new firebase.auth.OAuthProvider('microsoft.com'));
-  }
-
-  // SignIn with Email and Password
-  SignInWithEmail(email, password) {
-    return this.afAuth.signInWithEmailAndPassword(email, password)
-    .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['/']);
-        });
-        // this.setUserData(result.user);
+  SignInWithFacebook() {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    this.afAuth.signInWithPopup(provider).then((result) => {
+      this.router.navigate(['/']);
     }).catch((error) => {
-      window.alert(error);  
+      window.alert(error.message);
     })
   }
 
+  // SignIn with Microsoft
+  SignInWithMicrosoft() {
+    var provider = new firebase.auth.OAuthProvider('microsoft.com');
+    this.afAuth.signInWithPopup(provider).then((result) => {
+      this.router.navigate(['/']);
+    }).catch((error) => {
+      window.alert(error.message);
+    })
+  }
 
+  // LogOut User
+  Logout() {
+    this.afAuth.signOut()
+    this.router.navigate(['/'])
+  }
 }
