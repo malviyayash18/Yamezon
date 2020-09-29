@@ -1,11 +1,9 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
-import { User } from 'firebase';
-// import { User } from './user';
-import { Observable } from 'rxjs';
-import { NgZone } from '@angular/core';
+// import { User } from 'firebase';
+import { User } from './user';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
@@ -13,68 +11,132 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 })
 export class AuthService {
 
-  public user: Observable<User>;
-  public isLoggedIn : Observable<string>;
+  user: any;
 
+   constructor(
+    public afAuth: AngularFireAuth, 
+    public afs: AngularFirestore, 
+    public router: Router, 
+    public ngZone: NgZone,
+    public route: ActivatedRoute
+    ) { 
+      this.afAuth.authState.subscribe(user => {
+        if(user) {
+          this.user = user;
+          localStorage.setItem('user', JSON.stringify(this.user));
+          JSON.parse(localStorage.getItem('user'));
+        } else {
+          localStorage.setItem('user', null);
+          JSON.parse(localStorage.getItem('user'));
+        }
+        console.log(this.user);
+      })
+    }
 
-   constructor(public afAuth: AngularFireAuth, private router: Router, private route: ActivatedRoute) {
-    this.user = afAuth.authState; 
+    // Function to set user data
+    SetUserData(user) {
+      const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+      if (user.displayName) {
+        const userData: User = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          firstName: user.displayName.split(' ')[0],
+          lastName: user.displayName.split(' ')[1],
+          photoUrl: user.photoURL,
+          emailVerified: user.emailVerified
+        }
+        return userRef.set(userData, {
+          merge: true
+        })
+      } else {
+        const userData: User = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          firstName: 'NULL',
+          lastName: 'NULL',
+          photoUrl: user.photoURL,
+          emailVerified: user.emailVerified
+        }
+        return userRef.set(userData, {
+          merge: true
+        })
+      }
+      
+    }
+
+    // Auth login
+    AuthLogin(provider) {
+      return this.afAuth.signInWithPopup(provider)
+      .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/'])
+        })
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error.message);
+      })
+    }
+
+    // Send email verification
+    SendEmailVerification() {
+      let user = firebase.auth().currentUser;
+      user.sendEmailVerification();
+    }
+
+    get isLoggedIn(): boolean {
+      const user = JSON.parse(localStorage.getItem('user'));
+      return (user !== null && user.emailVerified !== false) ? true : false;
     }
 
    // Create new user with Email and Password
    CreateUserWithEmailAndPassword(email, password) {
-     this.afAuth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-       var errorCode = error.code;
-       var errorMessage = error.message;
-       console.log(errorMessage)
+     this.afAuth.createUserWithEmailAndPassword(email, password)
+     .then((result) => {
+      this.SendEmailVerification();
+      this.SetUserData(result.user);
+     }).catch((error) => {
+       window.alert(error.message);
      })
    }
 
   // SignIn with Email and Password
   SignInWithEmailAndPassword(email, password) {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    localStorage.setItem('returnUrl', returnUrl);
+    // let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    // localStorage.setItem('returnUrl', returnUrl);
 
-    this.afAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      window.alert(error.message);      
-    }).then((result) => {
-      
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+    .then((result) => {
+      this.ngZone.run(() => {
+        this.router.navigate(['/'])
+      });
+      this.SetUserData(result.user);
+    }).catch((error) => {
+      window.alert(error.message);
     })
   }
 
   // SignIn with Google
   SignInWithGoogle() {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    this.afAuth.signInWithPopup(provider).then((result) => {
-      this.router.navigate(['/']);
-    }).catch((error) => {
-      window.alert(error.message);
-    })
+    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
 
   // SignIn with Facebook
   SignInWithFacebook() {
-    var provider = new firebase.auth.FacebookAuthProvider();
-    this.afAuth.signInWithPopup(provider).then((result) => {
-      this.router.navigate(['/']);
-    }).catch((error) => {
-      window.alert(error.message);
-    })
+    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
   }
 
   // SignIn with Microsoft
   SignInWithMicrosoft() {
-    var provider = new firebase.auth.OAuthProvider('microsoft.com');
-    this.afAuth.signInWithPopup(provider).then((result) => {
-      this.router.navigate(['/']);
-    }).catch((error) => {
-      window.alert(error.message);
-    })
+    return this.AuthLogin(new firebase.auth.OAuthProvider('microsoft.com'));
   }
 
   // LogOut User
   Logout() {
-    this.afAuth.signOut()
-    this.router.navigate(['/'])
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['logout']);
+    })
   }
 }

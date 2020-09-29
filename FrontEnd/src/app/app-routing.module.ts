@@ -1,3 +1,4 @@
+import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'product', component: ProductsComponent },
   { path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuardService]},
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
+  { path: 'logout', component: LogoutComponent },
   { path: 'success', component: OrderSuccessComponent },
   { path: 'login', component: LogInComponent },
   { path: 'register', component: RegisterComponent },

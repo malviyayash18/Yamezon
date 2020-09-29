@@ -33,7 +33,7 @@
     
     <div routerLink="" id="return-and-orders" class="container get-away-extra">
 
-      <div *ngIf="authService.user | async as user_data" id="location-main" class="container">
+      <div *ngIf="authService.user" id="location-main" class="container">
         <div id="image-container" class="container">
           <img id="location-pin" src="../../assets/Icons/Location.png" />
         </div>
@@ -60,10 +60,16 @@
     </div> -->
 
     <!-- If the user is logged in -->
-    <div id="account" *ngIf="authService.user | async as user_data; else signin" class="container get-away-extra" >
+    <div id="account" *ngIf="authService.user else signin" class="container get-away-extra" >
       <div id="" class="container upper">
-        Hello, {{ user_data.displayName }}
-        <!-- Hello, User -->
+        <div *ngIf="authService.user.displayName else nouser" class="">
+          Hello, {{ authService.user.displayName }}
+        </div>
+        <ng-template>
+          <div #nouser class="">
+            Hello, Anonymous
+          </div>
+        </ng-template>
       </div>
       <div id="manage-account" class="container lower">
         <div class="dropdown">

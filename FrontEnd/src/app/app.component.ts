@@ -13,12 +13,12 @@ export class AppComponent {
   title = 'Yamezon';
 
   constructor(private authService: AuthService, private router: Router) {
-    this.authService.user.subscribe(user => {
-      if(user) {
-        let returnUrl = localStorage.getItem('returnUrl')
-        this.router.navigateByUrl(returnUrl);
-      }
-    })
+    // this.authService.user.subscribe(user => {
+    //   if(user) {
+    //     let returnUrl = localStorage.getItem('returnUrl')
+    //     this.router.navigateByUrl(returnUrl);
+    //   }
+    // })
 
   }
 }

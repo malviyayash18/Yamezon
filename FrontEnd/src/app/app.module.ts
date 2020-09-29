@@ -25,6 +25,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { NavBarSimpleComponent } from './nav-bar-simple/nav-bar-simple.component';
 import { FooterLargeComponent } from './footer-large/footer-large.component';
 import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RegisterComponent } from './register/register.component';
     LogInComponent,
     NavBarSimpleComponent,
     FooterLargeComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
