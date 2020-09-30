@@ -63,7 +63,7 @@
     <div id="account" *ngIf="authService.user else signin" class="container get-away-extra" >
       <div id="" class="container upper">
         <div *ngIf="authService.user.displayName else nouser" class="">
-          Hello, {{ authService.user.displayName }}
+          Hello, {{ authService.user.firstName }}
         </div>
         <ng-template>
           <div #nouser class="">

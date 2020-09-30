@@ -12,6 +12,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class AuthService {
 
   user: any;
+  userDataFireStore: any;
 
    constructor(
     public afAuth: AngularFireAuth, 
@@ -22,6 +23,18 @@ export class AuthService {
     ) { 
       this.afAuth.authState.subscribe(user => {
         if(user) {
+          let docRef = this.afs.collection('users').doc(`${user.uid }`)
+          docRef.get().then(function(doc) {
+            if (doc.exists) {
+                console.log("Document data:", doc.data());
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+          // console.log(this.userDataFireStore)
           this.user = user;
           localStorage.setItem('user', JSON.stringify(this.user));
           JSON.parse(localStorage.getItem('user'));
