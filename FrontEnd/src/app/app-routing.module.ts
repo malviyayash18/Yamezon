@@ -1,3 +1,4 @@
+import { SignupSuccessComponent } from './signup-success/signup-success.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'cart', component: ShoppingCartComponent, canActivate: [AuthGuardService]},
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
   { path: 'logout', component: LogoutComponent },
+  { path: 'signup-success', component: SignupSuccessComponent },
   { path: 'success', component: OrderSuccessComponent },
   { path: 'login', component: LogInComponent },
   { path: 'register', component: RegisterComponent },

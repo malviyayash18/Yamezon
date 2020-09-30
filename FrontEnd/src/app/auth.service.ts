@@ -54,8 +54,8 @@ export class AuthService {
           uid: user.uid,
           email: user.email,
           displayName: user.displayName,
-          firstName: 'NULL',
-          lastName: 'NULL',
+          firstName: null,
+          lastName: null,
           photoUrl: user.photoURL,
           emailVerified: user.emailVerified
         }
@@ -96,6 +96,7 @@ export class AuthService {
      .then((result) => {
       this.SendEmailVerification();
       this.SetUserData(result.user);
+      this.router.navigate(['signup-success'])
      }).catch((error) => {
        window.alert(error.message);
      })
