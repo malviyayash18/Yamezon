@@ -12,7 +12,6 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class AuthService {
 
   user: any;
-  userDataFireStore: any;
 
    constructor(
     public afAuth: AngularFireAuth, 
@@ -23,18 +22,6 @@ export class AuthService {
     ) { 
       this.afAuth.authState.subscribe(user => {
         if(user) {
-          let docRef = this.afs.collection('users').doc(`${user.uid }`)
-          docRef.get().then(function(doc) {
-            if (doc.exists) {
-                console.log("Document data:", doc.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-        }).catch(function(error) {
-            console.log("Error getting document:", error);
-        });
-          // console.log(this.userDataFireStore)
           this.user = user;
           localStorage.setItem('user', JSON.stringify(this.user));
           JSON.parse(localStorage.getItem('user'));
@@ -117,18 +104,18 @@ export class AuthService {
 
   // SignIn with Email and Password
   SignInWithEmailAndPassword(email, password) {
-    // let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    // localStorage.setItem('returnUrl', returnUrl);
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl);
 
     return this.afAuth.signInWithEmailAndPassword(email, password)
-    .then((result) => {
-      this.ngZone.run(() => {
-        this.router.navigate(['/'])
-      });
-      this.SetUserData(result.user);
-    }).catch((error) => {
-      window.alert(error.message);
-    })
+    // .then((result) => {
+    //   this.ngZone.run(() => {
+    //     this.router.navigateByUrl(returnUrl)
+    //   });
+    //   this.SetUserData(result.user);
+    // }).catch((error) => {
+    //   window.alert(error.message);
+    // })
   }
 
   // SignIn with Google

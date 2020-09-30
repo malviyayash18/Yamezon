@@ -15,8 +15,13 @@ import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.componen
 import { LogInComponent } from './log-in/log-in.component';
 
 import { AuthGuardService } from './auth-guard.service'
+import { AuthGuardLoggedinService } from './auth-guard-loggedin.service';
 
+// When user is not loggedin
 // Use this to protect a route --> , canActivate: [AuthGuardService]
+
+// When user is loggedin
+// Use this to protect a route --> , canActivate: [AuthGuardLoggedinService]
 
 
 const routes: Routes = [
@@ -28,7 +33,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'signup-success', component: SignupSuccessComponent },
   { path: 'success', component: OrderSuccessComponent },
-  { path: 'login', component: LogInComponent },
+  { path: 'login', component: LogInComponent, canActivate: [AuthGuardLoggedinService] },
   { path: 'register', component: RegisterComponent },
   { path: 'admin/product', component: AdminProductsComponent },
   { path: 'admin/order', component: AdminOrdersComponent }
