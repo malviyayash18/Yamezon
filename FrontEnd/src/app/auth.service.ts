@@ -68,12 +68,17 @@ export class AuthService {
 
     // Auth login
     AuthLogin(provider) {
+
+      let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+      localStorage.setItem('returnUrl', returnUrl);
+
       return this.afAuth.signInWithPopup(provider)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['/'])
-        })
+        var returnUrl = localStorage.getItem('returnUrl')
+        console.log(returnUrl);
         this.SetUserData(result.user);
+        // this.router.navigateByUrl(returnUrl)
+        this.router.navigate(['/']);
       }).catch((error) => {
         window.alert(error.message);
       })
