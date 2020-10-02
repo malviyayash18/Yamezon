@@ -25,7 +25,11 @@ import { FooterLargeComponent } from './footer-large/footer-large.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
-import { LoginComponent } from './seller/login/login.component';
+import { SellerFooterComponent } from './seller/seller-footer/seller-footer.component';
+import { SellerLogInComponent } from './seller/seller-log-in/seller-log-in.component';
+import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
+import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
+import { SellerNavBarComponent } from './seller/seller-nav-bar/seller-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,12 @@ import { LoginComponent } from './seller/login/login.component';
     RegisterComponent,
     LogoutComponent,
     SignupSuccessComponent,
-    LoginComponent
+    LoginComponent,
+    SellerFooterComponent,
+    SellerLogInComponent,
+    SellerHomeComponent,
+    SellerRegisterComponent,
+    SellerNavBarComponent
   ],
   imports: [
     BrowserModule,
