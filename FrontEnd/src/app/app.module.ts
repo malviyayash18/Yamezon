@@ -19,14 +19,13 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminProductsComponent } from './Admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { NavBarSimpleComponent } from './nav-bar-simple/nav-bar-simple.component';
 import { FooterLargeComponent } from './footer-large/footer-large.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
+import { LoginComponent } from './seller/login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +38,13 @@ import { SignupSuccessComponent } from './signup-success/signup-success.componen
     CheckoutComponent,
     OrderSuccessComponent,
     MyOrdersComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
     LogInComponent,
     NavBarSimpleComponent,
     FooterLargeComponent,
     RegisterComponent,
     LogoutComponent,
-    SignupSuccessComponent
+    SignupSuccessComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

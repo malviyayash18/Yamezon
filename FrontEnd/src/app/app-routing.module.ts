@@ -10,8 +10,6 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { AdminProductsComponent } from './Admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './Admin/admin-orders/admin-orders.component';
 import { LogInComponent } from './log-in/log-in.component';
 
 import { AuthGuardService } from './auth-guard.service'
@@ -34,9 +32,7 @@ const routes: Routes = [
   { path: 'signup-success', component: SignupSuccessComponent },
   { path: 'success', component: OrderSuccessComponent },
   { path: 'login', component: LogInComponent, canActivate: [AuthGuardLoggedinService] },
-  { path: 'register', component: RegisterComponent },
-  { path: 'admin/product', component: AdminProductsComponent },
-  { path: 'admin/order', component: AdminOrdersComponent }
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
