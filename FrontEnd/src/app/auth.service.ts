@@ -29,7 +29,7 @@ export class AuthService {
           localStorage.setItem('user', null);
           JSON.parse(localStorage.getItem('user'));
         }
-        console.log(this.user);
+        // console.log(this.user);
       })
     }
 

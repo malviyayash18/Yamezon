@@ -25,11 +25,12 @@ import { FooterLargeComponent } from './footer-large/footer-large.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
-import { SellerFooterComponent } from './seller/seller-footer/seller-footer.component';
 import { SellerLogInComponent } from './seller/seller-log-in/seller-log-in.component';
 import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
 import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
 import { SellerNavBarComponent } from './seller/seller-nav-bar/seller-nav-bar.component';
+import { SellerProductsComponent } from './seller/seller-products/seller-products.component';
+import { SellerProductsAddComponent } from './seller/seller-products-add/seller-products-add.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +49,12 @@ import { SellerNavBarComponent } from './seller/seller-nav-bar/seller-nav-bar.co
     RegisterComponent,
     LogoutComponent,
     SignupSuccessComponent,
-    LoginComponent,
-    SellerFooterComponent,
     SellerLogInComponent,
     SellerHomeComponent,
     SellerRegisterComponent,
-    SellerNavBarComponent
+    SellerNavBarComponent,
+    SellerProductsComponent,
+    SellerProductsAddComponent
   ],
   imports: [
     BrowserModule,

@@ -10,10 +10,10 @@
         </div>
 
         <div id="options-holder" class="container">
-            <div class="container"><button class="option-button option-active">Deshboard</button></div>
+            <div class="container"><button class="option-button">Deshboard</button></div>
             <div class="container"><button class="option-button">Orders</button></div>
             <div class="container"><button class="option-button">Returns</button></div>
-            <div routerLink="/seller/products" class="container"><button class="option-button">Manage Products</button></div>
+            <div class="container"><button class="option-button option-active">Manage Products</button></div>
             <div class="container"><button class="option-button">Sales Insight</button></div>
             <div class="container"><button class="option-button">Sales Insight</button></div>
         </div>
@@ -45,16 +45,15 @@
                 </div>
             </div>
         </div>
+
+        <div id="main-body-wrapper" class="container">
+            <button routerLink="/seller/products/add" id="add-button"> Add new product </button>
+        </div>
+
         <!-- boxy container ends -->
         <div id="main-body-wrapper" class="container">
-            <div id="graphy-holder" class="container">
-                <div id="left-graph" class="container graphy">
-                    One
-                </div>
-                <div id="right-graph" class="container graphy">
-                    Two
-                </div>
-                
+            <div id="product-list-container" class="container">
+                product list here
             </div>
         </div>
     </div>

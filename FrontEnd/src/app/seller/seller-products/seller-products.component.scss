@@ -80,32 +80,30 @@
     text-align: center;
 }
 
-#graphy-holder {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
-}
-
-.graphy {
-    background-color: yellow;
-    color: black;
-    height: 320px;
-    border-radius: 3px;
-    padding: 10px;
-    text-align: center;
-}
-
-#right-graph {
-    width: 40%;
-}
-
-#left-graph {
-    width: 57%;
-}
 
 #options-holder {
     padding: 20px 0;
+}
+
+#add-button {
+    background-color: darkslategray;
+    padding: 10px 20px;
+    border: none;
+    font-family: inherit;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#add-button:hover {
+    background-color: grey;
+}
+
+#product-list-container {
+    background-color: yellow;
+    height: 300px;
+    padding: 10px;
+    border-radius: 3px;
 }
 
 .option-button {

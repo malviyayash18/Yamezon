@@ -12,4 +12,20 @@ export class SellerLogInComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  SignInWithEmailAndPassword(email, password) {
+
+  }
+
+  SignInWithMicrosoft() {
+
+  }
+
+  SignInWithGoogle() {
+
+  }
+
+  SignInWithFacebook() {
+    
+  }
+
 }

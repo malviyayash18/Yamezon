@@ -11,10 +11,15 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { LogInComponent } from './log-in/log-in.component';
-// import {  }
+import { SellerLogInComponent } from './seller/seller-log-in/seller-log-in.component';
+import { SellerHomeComponent } from './seller/seller-home/seller-home.component';
+import { SellerRegisterComponent } from './seller/seller-register/seller-register.component';
+import { SellerProductsComponent } from './seller/seller-products/seller-products.component';
+import { SellerProductsAddComponent } from './seller/seller-products-add/seller-products-add.component'
 
 import { AuthGuardService } from './auth-guard.service'
 import { AuthGuardLoggedinService } from './auth-guard-loggedin.service';
+import { from } from 'rxjs';
 
 // When user is not loggedin
 // Use this to protect a route --> , canActivate: [AuthGuardService]
@@ -34,7 +39,12 @@ const routes: Routes = [
   { path: 'success', component: OrderSuccessComponent },
   { path: 'login', component: LogInComponent, canActivate: [AuthGuardLoggedinService] },
   { path: 'register', component: RegisterComponent },
-  // { path: 'seller', component:  },
+  { path: 'seller', component:  SellerHomeComponent},
+  { path: 'seller/login', component:  SellerLogInComponent},
+  { path: 'seller/register', component:  SellerRegisterComponent},
+  { path: 'logout', component:  LogoutComponent},
+  { path: 'seller/products', component:  SellerProductsComponent},
+  { path: 'seller/products/add', component:  SellerProductsAddComponent},
 ];
 
 @NgModule({
