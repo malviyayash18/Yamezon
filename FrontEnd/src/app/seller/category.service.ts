@@ -10,7 +10,8 @@ export class CategoryService {
 
   constructor(private db: AngularFirestore) { }
 
-  GetCategories() {
-    console.log(this.db.collection('categories').snapshotChanges());
+  async GetCategories() {
+    const events = await this.db.collection('categories').get()
+    console.log(events.forEach);
   }
 }
