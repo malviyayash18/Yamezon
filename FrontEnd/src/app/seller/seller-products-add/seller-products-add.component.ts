@@ -9,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellerProductsAddComponent implements OnInit {
 
-  categories: any;
+  categories : any;
 
   constructor(public categoryService: CategoryService, private productService: ProductService) { 
-    this.categories = categoryService.GetCategories();
+    
+    this.categoryService.GetCategories()
   }
 
   ngOnInit(): void {

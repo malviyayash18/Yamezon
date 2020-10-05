@@ -14,17 +14,16 @@ export class CategoryService {
   db = firebase.firestore();
   categories = [];
 
-  GetCategories() {
-  this.db.collection('categories').get().then((querySnapshot) => {
+  async GetCategories() {
+  await this.db.collection('categories').get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         let temp = {};
         temp['id'] = doc.id;
-        temp['name'] = doc.data().name; 
+        temp['name'] = doc.data().name;
         this.categories.push(temp);
       })
-    }).then(() => {
-      console.log(this.categories);
-      return this.categories;
     })
+    console.log(this.categories)
+    return this.categories
   }
 }
