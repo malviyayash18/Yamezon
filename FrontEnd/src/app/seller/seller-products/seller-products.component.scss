@@ -127,3 +127,14 @@
     background-color: pink;
     color: black;
 }
+
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.product {
+    color: black;
+}

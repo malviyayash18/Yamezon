@@ -53,7 +53,19 @@
         <!-- boxy container ends -->
         <div id="main-body-wrapper" class="container">
             <div id="product-list-container" class="container">
-                product list here
+                <div *ngFor="let prod of sellerProducts | async">
+                    <div class="container product-container">
+                        <div class="container product">
+                            {{ prod.title }}
+                        </div>
+                        <div class="container">
+                            {{ prod.price }}
+                        </div>
+                        <div class="container">
+                            {{ prod.category }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
