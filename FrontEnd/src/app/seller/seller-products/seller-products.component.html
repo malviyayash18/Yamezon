@@ -53,6 +53,10 @@
         <!-- boxy container ends -->
         <div id="main-body-wrapper" class="container">
             <div id="product-list-container" class="container">
+                <div>
+                    Your products
+                </div>
+                <hr>
                 <div *ngFor="let prod of sellerProducts | async">
                     <div class="container product-container">
                         <div class="container product">
@@ -64,7 +68,11 @@
                         <div class="container">
                             {{ prod.category }}
                         </div>
+                        <div class="container">
+                            <button [routerLink]="['/seller/products/', prod.id]"> View </button>
+                        </div>
                     </div>
+                    <hr>
                 </div>
             </div>
         </div>

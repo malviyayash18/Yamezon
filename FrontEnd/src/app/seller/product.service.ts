@@ -34,4 +34,9 @@ export class ProductService {
     })
     return this.sellerProducts;
   }
+
+  GetProduct(productId) {
+    console.log(this.db.collection('product').doc(productId));
+    return this.db.collection('product').doc(productId)
+  }
 }

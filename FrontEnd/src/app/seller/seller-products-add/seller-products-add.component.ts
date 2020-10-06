@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './../product.service';
 import { CategoryService } from './../category.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,18 +11,27 @@ import { Component, OnInit } from '@angular/core';
 export class SellerProductsAddComponent implements OnInit {
 
   categories : any;
+  product: any;
 
-  constructor(public categoryService: CategoryService, private productService: ProductService) { 
-    
-    this.categoryService.GetCategories()
+  constructor
+  (
+    public categoryService: CategoryService, 
+    private productService: ProductService,
+    private route: ActivatedRoute
+    ) {     
+    this.categoryService.GetCategories();
+    let id = this.route.snapshot.params.id;
+    console.log(id)
+    if (id) {
+      this.product = this.productService.GetProduct(id)
+    }
   }
 
   ngOnInit(): void {
   }
 
   Save(product) {
-    console.log(this.categories)
-    // this.productService.CreateProduct(product);
+    this.productService.CreateProduct(product);
   }
 
 }

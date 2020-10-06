@@ -45,6 +45,7 @@ const routes: Routes = [
   { path: 'logout', component:  LogoutComponent},
   { path: 'seller/products', component:  SellerProductsComponent},
   { path: 'seller/products/add', component:  SellerProductsAddComponent},
+  { path: 'seller/products/:id', component:  SellerProductsAddComponent},
 ];
 
 @NgModule({
