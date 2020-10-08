@@ -1,3 +1,4 @@
+import { SellerProductEditComponent } from './seller/seller-product-edit/seller-product-edit.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
@@ -45,7 +46,7 @@ const routes: Routes = [
   { path: 'logout', component:  LogoutComponent},
   { path: 'seller/products', component:  SellerProductsComponent},
   { path: 'seller/products/add', component:  SellerProductsAddComponent},
-  { path: 'seller/products/:id', component:  SellerProductsAddComponent},
+  { path: 'seller/products/:id', component:  SellerProductEditComponent},
 ];
 
 @NgModule({

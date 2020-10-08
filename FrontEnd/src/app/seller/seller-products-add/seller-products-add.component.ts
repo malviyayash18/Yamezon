@@ -11,26 +11,29 @@ import { Component, OnInit } from '@angular/core';
 export class SellerProductsAddComponent implements OnInit {
 
   categories : any;
-  product: any;
 
   constructor
   (
     public categoryService: CategoryService, 
-    private productService: ProductService,
+    public productService: ProductService,
     private route: ActivatedRoute
     ) {     
-    this.categoryService.GetCategories();
-    let id = this.route.snapshot.params.id;
-    console.log(id)
-    if (id) {
-      this.product = this.productService.GetProduct(id)
+    if (categoryService.categories.length == 0) {
+      this.categoryService.GetCategories();
     }
   }
 
   ngOnInit(): void {
   }
 
-  Save(product) {
+  Save(title, price, category, imageUrl) {
+    let product = {
+      'title': title,
+      'price': price,
+      'category': category,
+      'imageUrl': imageUrl
+    }
+    console.log(product);
     this.productService.CreateProduct(product);
   }
 

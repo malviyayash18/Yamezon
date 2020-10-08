@@ -33,6 +33,7 @@ import { SellerRegisterComponent } from './seller/seller-register/seller-registe
 import { SellerNavBarComponent } from './seller/seller-nav-bar/seller-nav-bar.component';
 import { SellerProductsComponent } from './seller/seller-products/seller-products.component';
 import { SellerProductsAddComponent } from './seller/seller-products-add/seller-products-add.component';
+import { SellerProductEditComponent } from './seller/seller-product-edit/seller-product-edit.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SellerProductsAddComponent } from './seller/seller-products-add/seller-
     SellerNavBarComponent,
     SellerProductsComponent,
     SellerProductsAddComponent,
+    SellerProductEditComponent,
   ],
   imports: [
     BrowserModule,

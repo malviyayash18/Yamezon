@@ -23,7 +23,6 @@ export class CategoryService {
         this.categories.push(temp);
       })
     })
-    console.log(this.categories)
     return this.categories
   }
 }

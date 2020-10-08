@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from './../auth.service';
 import { Injectable } from '@angular/core';
@@ -13,6 +14,12 @@ export class ProductService {
   db = firebase.firestore(); 
 
   sellerProducts = [];
+  product = {
+    'title': '',
+    'price': '',
+    'category': '',
+    'imageUrl': '',
+  };
 
   async CreateProduct(product) {
     product['seller'] = this.authService.user.displayName;
@@ -35,8 +42,12 @@ export class ProductService {
     return this.sellerProducts;
   }
 
-  GetProduct(productId) {
-    console.log(this.db.collection('product').doc(productId));
-    return this.db.collection('product').doc(productId)
-  }
-}
+  async GetProduct(productId) {
+    await this.db.collection('products').doc(productId).get().then((doc) => {
+      this.product.title = doc.data().title;
+      this.product.price = doc.data().price;
+      this.product.category = doc.data().category;
+      this.product.imageUrl = doc.data().imageUrl;
+    })
+    console.log(this.product);
+}}

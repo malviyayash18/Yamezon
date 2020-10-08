@@ -59,16 +59,16 @@
                 <hr>
                 <div *ngFor="let prod of sellerProducts | async">
                     <div class="container product-container">
-                        <div class="container product">
+                        <div class="container product custom-container">
                             {{ prod.title }}
                         </div>
-                        <div class="container">
+                        <div class="container custom-container">
                             {{ prod.price }}
                         </div>
-                        <div class="container">
+                        <div class="container custom-container">
                             {{ prod.category }}
                         </div>
-                        <div class="container">
+                        <div class="container custom-container">
                             <button [routerLink]="['/seller/products/', prod.id]"> View </button>
                         </div>
                     </div>
