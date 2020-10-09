@@ -29,7 +29,7 @@ export class ProductService {
 
   async GetProducts() {
     this.sellerProducts = [];
-    await this.db.collection('products').get().then((querySnapshot) => {
+    await this.db.collection('products').orderBy('title', "desc").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         let temp = {}
         temp['id'] = doc.id;
@@ -39,7 +39,7 @@ export class ProductService {
         this.sellerProducts.push(temp);
       })
     })
-    return this.sellerProducts;
+    // return this.sellerProducts;
   }
 
   async GetProduct(productId) {
@@ -50,4 +50,21 @@ export class ProductService {
       this.product.imageUrl = doc.data().imageUrl;
     })
     console.log(this.product);
-}}
+  }
+
+  async Search(searchQuery) {
+    this.sellerProducts = [];
+    await this.db.collection('products').where("title", "==", searchQuery).get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        let temp = {}
+        temp['id'] = doc.id;
+        temp['title'] = doc.data().title;
+        temp['price'] = doc.data().price;
+        temp['category'] = doc.data().category; 
+        this.sellerProducts.push(temp);
+      })
+    })
+    console.log(this.sellerProducts)
+  }
+
+}

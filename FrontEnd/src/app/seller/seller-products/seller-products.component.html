@@ -50,14 +50,18 @@
             <button routerLink="/seller/products/add" id="add-button"> Add new product </button>
         </div>
 
+        <div id="main-body-wrapper" class="container">
+            <input #searchquery type="text" placeholder="Search ...">
+            <button id="search-button" (click)="Search(searchquery.value)"> Search </button>
+            <button id="search-button" (click)="productService.GetProducts()"> View All </button>
+        </div>
+
         <!-- boxy container ends -->
         <div id="main-body-wrapper" class="container">
+            
             <div id="product-list-container" class="container">
-                <div>
-                    Your products
-                </div>
-                <hr>
-                <div *ngFor="let prod of sellerProducts | async">
+                
+                <div *ngFor="let prod of productService.sellerProducts">
                     <div class="container product-container">
                         <div class="container product custom-container">
                             {{ prod.title }}

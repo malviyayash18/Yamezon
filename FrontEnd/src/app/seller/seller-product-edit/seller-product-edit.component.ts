@@ -46,4 +46,10 @@ export class SellerProductEditComponent implements OnInit {
     })
   }  
 
+  Delete() {
+    this.db.collection('products').doc(this.id).delete().then(() => {
+      this.router.navigate(['/seller/products']);
+    })
+  }
+
 }

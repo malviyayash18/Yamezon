@@ -10,26 +10,27 @@
         <form>
             <div class="form-group">
                 <label for="title"> Title </label>
-                <input [value]="productService.product.title" #title name="title" id="title" type="text" class="form-control">
+                <input [(ngModel)]="productService.product.title" #title="ngModel" name="title" id="title" type="text" class="form-control">
             </div>
         
             <div class="form-group">
                 <label for="price"> Price </label>
-                <input [value]="productService.product.price" #price name="price" id="price" type="number" class="form-control">
+                <input [(ngModel)]="productService.product.price" #price="ngModel" name="price" id="price" type="number" class="form-control">
             </div>
         
             <div class="form-group">
                 <label for="category"> Category </label>
-                <select #category name="category" id="category" type="text" class="form-control">
+                <select [(ngModel)]="productService.product.category" #category="ngModel" name="category" id="category" type="text" class="form-control">
                 <option *ngFor="let c of categoryService.categories" [value]="c.id"> {{ c.name }} </option>
                 </select>
             </div>
         
             <div class="form-group">
                 <label for="image"> Image URL </label>
-                <input [value]="productService.product.imageUrl" #imageurl name="image-url" id="image" type="text" class="form-control">
+                <input [(ngModel)]="productService.product.imageUrl" #imageurl="ngModel" name="image-url" id="image" type="text" class="form-control">
             </div>
         
+            <button (click)="Delete()"> Delete </button>
             <button class="btn" (click)="Update(title.value, price.value, category.value, imageurl.value)"> Update </button>
         </form>
     </div>

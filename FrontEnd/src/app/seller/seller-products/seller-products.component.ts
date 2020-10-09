@@ -8,15 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellerProductsComponent implements OnInit {
 
-  sellerProducts :any;
+  // sellerProducts :any;
 
   constructor(public productService: ProductService) { 
-   this.sellerProducts = productService.GetProducts();
+  //  this.sellerProducts = productService.GetProducts();
+  productService.GetProducts();
    }
 
   ngOnInit(): void {
   }  
   
+  Search(searchQuery) {
+    this.productService.Search(searchQuery);
+  }
 
 
   
