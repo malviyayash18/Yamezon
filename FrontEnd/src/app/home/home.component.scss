@@ -1,10 +1,35 @@
 #main-body-container {
-    margin-top: 65px;
+    // margin-top: 65px;
     // position: relative;
     height: 800px;
     background-color: #222831;
     color: white;
     padding: 20px;
+}
+
+#carosel {
+    margin-top: 65px;
+    background-color: white;
+    color:  black;
+    height: 350px;
+}
+
+#carosel-image {
+    height: 350px;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 270px;
+}
+
+#right-arrow {
+    left: 5%;;
+}
+
+#left-arrow {
+    left: 95%;
 }
 
 // Media CSS comes here ....

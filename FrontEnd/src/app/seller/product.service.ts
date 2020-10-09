@@ -39,7 +39,7 @@ export class ProductService {
         this.sellerProducts.push(temp);
       })
     })
-    // return this.sellerProducts;
+    // return this.sellerProducts;FIREf
   }
 
   async GetProduct(productId) {
