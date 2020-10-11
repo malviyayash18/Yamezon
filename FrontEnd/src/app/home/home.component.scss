@@ -11,26 +11,51 @@
     margin-top: 65px;
     background-color: white;
     color:  black;
-    height: 350px;
+    height: 400px;
 }
 
 #carosel-image {
-    height: 350px;
+    height: 100%;
+    width: 100%;
 }
 
 .arrow {
     cursor: pointer;
     position: absolute;
-    top: 270px;
+    top: 220px;
 }
 
 #right-arrow {
-    left: 5%;;
+    left: 5%;
+    
 }
 
 #left-arrow {
     left: 95%;
+    transform: rotate(180deg);
 }
+
+#history-container {
+    background-color: white;
+    padding: 10px;
+    color: black;
+}
+
+#product-card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.product-card { 
+    height: 150px;
+    background-color: blue;
+    width: 200px;
+
+}
+
+
 
 // Media CSS comes here ....
 
@@ -50,6 +75,13 @@
       #main-body-container {
           margin-top: 0;
       }
+      #carosel {
+        margin-top: 0;
+      }
+  }
+
+  body {
+      overflow-x: hidden;
   }
 
 

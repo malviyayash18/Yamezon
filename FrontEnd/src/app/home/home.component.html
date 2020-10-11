@@ -3,19 +3,43 @@
 <!-- <p> Home Works! </p> -->
 
 <div id="carosel">
-  <img id="carosel-image" src="https://www.pcgamesn.com/wp-content/uploads/2020/09/among-us-player-count.jpg">
-  <div id="left-arrow" class="container arrow">
-    &#9658;
+  <img id="carosel-image" [src]="currentImage">
+  <div (click)="MoveRight()" id="left-arrow" class="container arrow">
+    <img src="../../assets/Icons/ArrowHead.png">
   </div>
-  <div id="right-arrow" class="container arrow">
-    &#9668;
+  <div (click)="MoveLeft()" id="right-arrow" class="container arrow">
+    <img src="../../assets/Icons/ArrowHead.png">
   </div>
 </div>
 
 <div id="main-body-container" class="container">
 
-      <div class="container">
-        Header for products page .... Maybe XD
+      <div id="history-container" class="container">
+        Products based on your historys
+        <hr>
+        <div id="product-card-wrapper" class="container">
+          <div class="container product-card">
+            Product
+          </div>
+          <div class="container product-card">
+            Product
+          </div>
+          <div class="container product-card">
+            Product
+          </div>
+          <div class="container product-card">
+            Product
+          </div>
+          <div class="container product-card">
+            Product
+          </div>
+          <div class="container">
+            
+          </div>
+          <div class="container">
+            
+          </div>
+        </div>
       </div>
       <div class="container">
           this is where all the produxts are going to come .....
