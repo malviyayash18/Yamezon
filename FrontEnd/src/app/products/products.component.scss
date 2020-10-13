@@ -1,0 +1,158 @@
+#main-container {
+    margin-top: 65px;
+    display: flex;
+    padding: 20px 10px;
+    font-size: 15px;
+}
+
+#product-info {
+    width: 80%;
+    // background-color: red;
+    // height: 200px;
+    display: flex;
+    // justify-content: space-between;
+}
+
+#buying-info {
+    // display: flex;
+    // align-content: center;
+    // justify-content: center;
+    // background-color: green;
+    height: 200px;
+    width: 20%;
+}
+
+.image-list {
+    // height: auto;
+    max-width: 100%;
+}
+
+.image-list-list {
+    list-style: none;   
+    // border: 1px solid grey;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 20px 10px;
+    cursor: pointer;
+}
+
+#image-side {
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+#info-side {
+    padding: 5px 25px;
+    width: 60%;
+}
+
+#main-image {
+    // height: 300px;
+    width: 100%;
+}
+
+#store-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#title {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#rating-container {
+    font-size: 13px;
+    display: flex;
+}
+
+#rating-star {
+    vertical-align: middle;
+}
+
+#rating-text {
+    margin-left: 20px;
+}
+
+.star {
+    vertical-align: sub;
+}
+
+.price-main {
+    margin-top: 5px;
+    display: flex;
+}
+ .price-left {
+     padding-right: 15px;
+     text-align: right;
+     width: 150px;
+ }
+
+//  .price-right {
+
+//  }
+ 
+ .big-price {
+     font-size: 18px;
+     color: red;
+ }
+
+ .cut-price {
+    text-decoration: line-through;
+ }
+
+ .deliver-container {
+     margin-top: 10px;
+ }
+
+ #stock {
+     color: green;
+     font-weight: 600;
+ }
+
+ .share-icon {
+     height: 20px;
+     width: 20px;
+     margin: 5px;
+     vertical-align: middle;
+ }
+
+#share-container {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+#main-buying-container {
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+input {
+    font-family: inherit;
+    width: 100%;
+    // margin: auto;
+}
+
+.quantity-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#quantity {
+    margin-right: 20px;
+}
+
+.buy-button {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 40px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+#button-container {
+    margin-top: 20px;
+}

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  id: any;
+
+  constructor(private route: ActivatedRoute) { 
+    this.id = this.route.snapshot.params.id
+   }
 
   ngOnInit(): void {
   }
