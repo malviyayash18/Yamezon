@@ -156,3 +156,100 @@ input {
 #button-container {
     margin-top: 20px;
 }
+
+#side-side-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#product-description {
+    padding: 10px;
+}
+
+.container-header {
+    font-size: 18px;
+    font-family: inherit;
+    color: orange;
+    font-weight: 700;
+}
+
+#desc-para {
+    color: black;
+    font-size: 13px;
+}
+
+#details-container {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+}
+
+#tech-details {
+    margin-bottom: 15px;
+    width: 50%;
+
+}
+
+#addi-details {
+    width: 50%;
+}
+
+.table-container {
+    display: flex;
+    // margin-top: 15px;
+}
+
+.spec {
+    border-top: 1px solid black;
+    width: 48%;
+    padding: 10px;
+    background-color: grey;
+    color: black;
+    margin-bottom: none;
+}
+
+.deta {
+    border-top: 1px solid black;
+    margin-bottom: none;
+    width: 48%;
+    padding: 10px;
+    background-color: lightgrey;
+    color: black;
+}
+
+#margin-div {
+    margin-top: 15px;
+}
+
+#qna-search-div {
+    margin-top: 15px;
+}
+
+#qna-search {
+    height: 40px;
+    padding: 5px;
+    width: 50%;
+    font-size: 16px;
+}
+
+#ans {
+    color: black;
+    margin: 10px;
+    // padding: 10px;
+    display: flex;
+}
+
+#vote{
+    padding: 0 20px;
+    border-right: 1px solid black;
+}
+
+#qna-section {
+    padding: 0 10px;
+}
+
+.row {
+    display: flex;
+}
