@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs';
+import { MainProductService } from './../main-product.service';
+import { ProductService } from './../seller/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
@@ -9,25 +12,21 @@ import * as firebase from 'firebase';
 })
 export class ProductsComponent implements OnInit {
 
-  db = firebase.firestore();
-
   id: any;
+  product: Observable<any>;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, public mainProductService : MainProductService) { 
     this.id = this.route.snapshot.params.id
     console.log(this.id);
-    this.GetProduct();
+    this.mainProductService.GetEntireProduct(this.id);
+    this.product = this.mainProductService.mainProduct
+    console.log(this.product);
    }
 
   ngOnInit(): void {
+    
   }
 
-  GetProduct() {
-    // this.db.collection(`products/0IHxVFtVA0K9b6NT7hpZ`).get().then((querySnapshot) => {
-    //   querySnapshot.forEach((doc) => {
-    //     console.log(doc.data());
-    //   })
-    // })
-  }
+  
 
 }
